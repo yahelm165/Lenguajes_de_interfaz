@@ -1,0 +1,12 @@
+# Carpetas de compilación y temporales de Visual Studio
+.vs/
+Debug/
+Release/
+x64/
+x86/
+*.tlog
+*.lastbuildstate
+*.obj
+*.ilk
+*.pdb
+*.exe
