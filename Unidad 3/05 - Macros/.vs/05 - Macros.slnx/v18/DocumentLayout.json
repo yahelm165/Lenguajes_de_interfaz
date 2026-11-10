@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\rosa\\source\\repos\\05 - Macros\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4BA4BE72-B710-4D1C-AD3F-B51570EBCD4B}|05 - Macros\\05 - Macros.vcxproj|C:\\Users\\rosa\\source\\repos\\05 - Macros\\05 - Macros\\Plantilla.asm||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{4BA4BE72-B710-4D1C-AD3F-B51570EBCD4B}|05 - Macros\\05 - Macros.vcxproj|solutionrelative:05 - Macros\\Plantilla.asm||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Plantilla.asm",
+              "DocumentMoniker": "C:\\Users\\rosa\\source\\repos\\05 - Macros\\05 - Macros\\Plantilla.asm",
+              "RelativeDocumentMoniker": "05 - Macros\\Plantilla.asm",
+              "ToolTip": "C:\\Users\\rosa\\source\\repos\\05 - Macros\\05 - Macros\\Plantilla.asm",
+              "RelativeToolTip": "05 - Macros\\Plantilla.asm",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-11-10T16:30:09.068Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
