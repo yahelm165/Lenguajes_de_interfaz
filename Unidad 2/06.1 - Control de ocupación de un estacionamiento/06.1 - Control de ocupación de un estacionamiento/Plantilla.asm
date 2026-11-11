@@ -1,3 +1,5 @@
+; Docente: Jose Luis Medina Jimenez - Materia: Lenguajes de Interfaz - Instituto Tecnologico de Culiacan
+; Yahel Alejandro Montero Lopez - 21170401 - Ing. en Sistemas Computacionales
 
 INCLUDE Irvine32.inc
 
