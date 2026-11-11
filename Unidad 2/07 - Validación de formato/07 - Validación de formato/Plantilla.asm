@@ -1,3 +1,6 @@
+; Docente: Jose Luis Medina Jimenez - Materia: Lenguajes de Interfaz - Instituto Tecnologico de Culiacan
+; Yahel Alejandro Montero Lopez - 21170401 - Ing. en Sistemas Computacionales
+
 INCLUDE Irvine32.inc
 
 .data
@@ -30,9 +33,7 @@ main PROC
     ; Inicializar puntero/índice
     mov esi, 0
 
-    ; ---------------------------------------------------------
     ; 4. Validar las 3 letras (posiciones 0, 1, 2)
-    ; ---------------------------------------------------------
 ValidarLetras:
     mov al, cadenaEntrada[esi]
     cmp al, 'A'
@@ -44,18 +45,14 @@ ValidarLetras:
     cmp esi, 3
     jl  ValidarLetras               ; Repetir para los índices 0, 1 y 2
 
-    ; ---------------------------------------------------------
     ; 5. Validar el separador '-' (posición 3)
-    ; ---------------------------------------------------------
 ValidarSeparador:
     mov al, cadenaEntrada[esi]
     cmp al, '-'
     jne ErrorSeparador
     inc esi                         ; Avanzar al índice 4
 
-    ; ---------------------------------------------------------
     ; 6. Validar los 3 dígitos (posiciones 4, 5, 6)
-    ; ---------------------------------------------------------
 ValidarDigitos:
     mov al, cadenaEntrada[esi]
     cmp al, '0'
@@ -67,9 +64,7 @@ ValidarDigitos:
     cmp esi, 7
     jl  ValidarDigitos              ; Repetir para los índices 4, 5 y 6
 
-    ; ---------------------------------------------------------
     ; 7. Si todo es correcto, imprimir éxito y la cadena
-    ; ---------------------------------------------------------
 Exito:
     mov edx, OFFSET msgExito
     call WriteString
@@ -79,9 +74,7 @@ Exito:
     call Crlf
     jmp Fin
 
-; -------------------------------------------------------------
 ; Rutinas de manejo de errores
-; -------------------------------------------------------------
 ErrorLongitud:
     mov edx, OFFSET msgErrorLongitud
     call WriteString
