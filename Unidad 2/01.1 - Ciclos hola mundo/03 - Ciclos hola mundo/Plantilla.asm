@@ -1,3 +1,8 @@
+; Docente: Jose Luis Medina Jimenez - Materia: Lenguajes de Interfaz - Instituto Tecnologico de Culiacan
+; Yahel Alejandro Montero Lopez - 21170401 - Ing. en Sistemas Computacionales
+
+; Actividad de tarea para practicar ciclos. Imprime 10 veces el mensaje "Hola mundo!" en la consola.
+
 INCLUDE Irvine32.inc
 .data
 
