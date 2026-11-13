@@ -1,15 +1,8 @@
-; ============================================================================
-; Proyecto: Sistema de Inventario de Biblioteca
-; Arquitectura: x86 (32 bits) - MASM / Irvine32
+; Docente: Jose Luis Medina Jimenez - Materia: Lenguajes de Interfaz - Instituto Tecnologico de Culiacan
+; Yahel Alejandro Montero Lopez - 21170401 - Ing. en Sistemas Computacionales
+; Proyecto final de la unidad 2: Inventario de una biblioteca.
 ; Archivo de datos: Inventario.txt
-;
-; Descripcion:
-;   Administra hasta 10 libros con codigo unico (ABC-123), nombre (max 24
-;   caracteres + terminador 0), existencias (0..100) y precio en centavos
-;   enteros (1..999999, equivalente a $0.01 - $9,999.99 MXN).
-;   Todas las entradas y salidas numericas se realizan mediante ReadString
-;   y WriteString con rutinas propias de conversion y validacion.
-; ============================================================================
+
 
 INCLUDE Irvine32.inc
 
