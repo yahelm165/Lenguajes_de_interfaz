@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Proyecto - Inventario con macros y procs/Proyecto - Inventario con macros y procs.vcxproj" />
+</Solution>
