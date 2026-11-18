@@ -954,23 +954,23 @@ Rutina_EnteroACadena:
     mov BYTE PTR [edi + 1], 0
     jmp EAC_Fin
 EAC_NoCero:
-    xor ecx, ecx
+    xor ecx, ecx 
     mov ebx, 10
 EAC_DivLoop:
-    xor edx, edx
-    div ebx
-    add dl, '0'
-    push edx
-    inc ecx
-    cmp eax, 0
+    xor edx, edx ; Es equivalente a "mov edx, 0" para limpiar el registro de resto
+    div ebx      ; Se divide repetidas veces entre EBX (10) para obtener los digitos
+    add dl, '0'  ; Convierte el dígito en caracter ASCII equivalente a 30h
+    push edx     ; Se guarda el dígito en la pila
+    inc ecx      ; Se incrementa el contador de digitos
+    cmp eax, 0   ; Si el cociente es 0, se han procesado todos los digitos
     jne EAC_DivLoop
 EAC_PopLoop:
-    pop edx
-    mov [edi], dl
-    inc edi
-    dec ecx
-    jnz EAC_PopLoop
-    mov BYTE PTR [edi], 0
+    pop edx       ; Se recupera el dígito de la pila
+    mov [edi], dl ; Se escribe el dígito en el buffer de destino en sentido inverso
+    inc edi       ; Se avanza al siguiente byte del buffer
+    dec ecx       ; Se decrementa el contador de digitos
+    jnz EAC_PopLoop ; Si aún hay digitos, se repite el proceso
+    mov BYTE PTR [edi], 0 ; Se agrega el terminador nulo al final de la cadena
 EAC_Fin:
     pop edi
     pop edx
@@ -1240,33 +1240,33 @@ Rutina_GenerarCodigoUnico:
     push edi
 GCU_Intentar:
     mov esi, edi
-    mov ecx, 3
+    mov ecx, 3 ; Genera 3 caracteres de letras
 GCU_Letras:
-    mov eax, 26
-    call RandomRange
-    add al, 'A'
-    mov [esi], al
-    inc esi
-    dec ecx
-    jnz GCU_Letras
-    mov BYTE PTR [esi], '-'
-    inc esi
-    mov ecx, 3
+    mov eax, 26      ; Genera letras A-Z
+    call RandomRange ; Genera un número aleatorio entre 0 y 25 porque le indicamos el rango con eax=26
+    add al, 'A'      ; Convierte el número aleatorio en una letra mayúscula
+    mov [esi], al    ; Almacena la letra en el buffer de destino
+    inc esi          ; Avanza el puntero del buffer
+    dec ecx          ; Decrementa el contador de letras
+    jnz GCU_Letras   ; Genera 3 letras más
+    mov BYTE PTR [esi], '-' ; Agrega el guion a la cadena
+    inc esi          ; Avanza el puntero del buffer
+    mov ecx, 3       ; Genera 3 caracteres de dígitos
 GCU_Digitos:
-    mov eax, 10
-    call RandomRange
-    add al, '0'
-    mov [esi], al
-    inc esi
-    dec ecx
+    mov eax, 10      ; Indicamos el rango con eax =10 para generar un número aleatorio entre 0 y 9
+    call RandomRange ; Mandamos a llamar a la rutina que genera un número aleatorio con eax
+    add al, '0'      ; Convierte el número aleatorio en un dígito ASCII
+    mov [esi], al    ; Almacena el dígito en el buffer de destino
+    inc esi          ; Avanza el puntero del buffer
+    dec ecx          ; Decrementa el contador de dígitos
     jnz GCU_Digitos
-    mov BYTE PTR [esi], 0
-    mov edx, edi
-    mov retBuscar, OFFSET GCU_PostBuscar
-    jmp Rutina_BuscarLibroPorCodigo
+    mov BYTE PTR [esi], 0 ; Agrega el terminador nulo a la cadena
+    mov edx, edi          ; Prepara el puntero al código generado para buscarlo en el inventario
+    mov retBuscar, OFFSET GCU_PostBuscar ; Prepara la dirección de retorno para después de buscar el código
+    jmp Rutina_BuscarLibroPorCodigo      ; Llama a la rutina que busca el código en el inventario
 GCU_PostBuscar:
-    cmp eax, -1
-    jne GCU_Intentar
+    cmp eax, -1             ;   Si el código ya existe, se genera otro
+    jne GCU_Intentar        ;   Si el código no existe, se termina la rutina
     pop edi
     pop esi
     pop edx
@@ -1557,13 +1557,13 @@ LPA_Fin:
 
 ; --- CargarDesdeArchivoBase -> EAX = 0 ok, 1 no existe, 2 error ---
 Rutina_CargarDesdeArchivoBase:
-    mov edx, OFFSET nombreArchivo
+    mov edx, OFFSET nombreArchivo 
     call OpenInputFile
-    cmp eax, INVALID_HANDLE_VALUE
+    cmp eax, INVALID_HANDLE_VALUE   ; Si no se pudo abrir el archivo, se retorna 1
     je CDAB_NoExiste
-    mov manejadorArchivo, eax
-    mov edx, OFFSET bufferArchivo
-    mov ecx, TAM_BUFFER_ARCHIVO - 1
+    mov manejadorArchivo, eax       ; Guardamos el manejador del archivo abierto
+    mov edx, OFFSET bufferArchivo   ; Preparamos el buffer para leer el contenido del archivo
+    mov ecx, TAM_BUFFER_ARCHIVO - 1 ; Reservamos 1 byte para el terminador nulo
     call ReadFromFile
     jc CDAB_ErrLectura
     mov bytesArchivo, eax
