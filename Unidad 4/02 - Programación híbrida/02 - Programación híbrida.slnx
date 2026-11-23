@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="02 - Programación híbrida/02 - Programación híbrida.vcxproj" />
+  <Project Path="02 - Programación híbrida/02 - Programación híbrida.vcxproj" Id="72894be5-8cb5-489e-94c0-d4dda28f5567" />
 </Solution>
