@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="03 - Detección USB/03 - Detección USB.vcxproj" />
+  <Project Path="03 - Detección USB/03 - Detección USB.vcxproj" Id="11a85ab7-ca7f-4abe-9675-0f950e1931b2" />
 </Solution>
